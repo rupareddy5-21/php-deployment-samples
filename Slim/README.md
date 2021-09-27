@@ -24,8 +24,7 @@ Slim is a micro framework; therefore, there is nothing further that needs to be 
 To start and run Slim, use the following command:
 
 ```sh
-php -S localhost:8080 -t public p
-ublic/index.php
+php -S localhost:8080 -t public public/index.php
 ```
 
 Navigate to `http://localhost:8080` to view application.
