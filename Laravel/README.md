@@ -1,101 +1,66 @@
-# Creating Laravel application
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Requirements
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-- [PHP 7.x](https://windows.php.net/download/)
-- [Composer](https://getcomposer.org/download/)
+## About Laravel
 
-## Installing Lavavel via Composer
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-1. Open a new terminal to run the following command: Change *example-app* to the name of your application.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-```cmd
-composer create-project laravel/laravel example-app
-```
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-2. CD into your newly created project and type **`code .`** to open the current directory in Visual Studio Code.
+## Learning Laravel
 
-If you are running a fresh PHP installation, you can use this example [php.ini](https://chmaldstorage.blob.core.windows.net/phpwpbootcamp/php.ini) files for your PHP installation.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-## Setting up Laravel
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-Before you are able to continue further, you will need to ensure your `.env` file has a `APP_KEY` defined. To generate a new `APP_KEY` run the following command:
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-```cmd
-php artisan key:generate
-```
+## Laravel Sponsors
 
-To start and run Laravel,  using the following command:
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-```cmd
-php artisan serve
-```
+### Premium Partners
 
-Navigate to `http://localhost:8080` to access your new Laravel application.
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
-To stop running your application locally, press `CTRL+C`.
+## Contributing
 
-## Creating a new Controller
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Controllers can be used to display data for a REST API or even to show an application page.
+## Code of Conduct
 
-Create a new controller using the following command:
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-```cmd
-php artisan make:controller HelloWorldController
-```
+## Security Vulnerabilities
 
-This will create a new file `app\Http\Controllers\HelloWorldController.php`
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Navigate to the new controller file and add a new function inside the defined class.
+## License
 
-```php
-public function index()
-{
-    return "Hello World";
-}
-```
-
-## Creating a new Route
-
-In order to access this new function, you will need to define a route.
-
-Open the `routes\web.php` file and add the new controller with the route `/hello`.
-
-Within the `Route:get()` function we are setting the `/hello` endpoint to point to `HelloWorldController:class` and the `index` function we defined.
-
-```php
-<?php
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloWorldController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/hello', [HelloWorldController::class, 'index']);
-```
-
-Once added, run your application using `php artisan serve`.
-
-Navigate to your new endpoint: [http://localhost:8000/hello](http://localhost:8000/hello)
-
-## Expand your knowledge
-
-Create two additional endpoints using the resources below to expand your knowledge:
-
-[Laravel - Controller](https://laravel.com/docs/8.x/controllers)
-
-[Laravel - Responses](https://laravel.com/docs/8.x/responses)
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
