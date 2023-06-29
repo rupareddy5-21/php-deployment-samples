@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Application\Actions\User\ListUsersAction;
@@ -16,11 +17,6 @@ return function (App $app) {
 
     $app->get('/', function (Request $request, Response $response) {
         $response->getBody()->write('Hello world!');
-        return $response;
-    });
-
-    $app->get('/hello', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello from our new Slim micro framework application.');
         return $response;
     });
 
