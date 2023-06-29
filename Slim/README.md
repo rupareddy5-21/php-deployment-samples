@@ -1,69 +1,42 @@
-# Creating Slim application
+# Slim Framework 4 Skeleton Application
 
-## Requirements
+[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
 
-- [PHP 7.x](https://windows.php.net/download/)
-- [Composer](https://getcomposer.org/download/)
+Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
 
-## Installing Slim via Composer
+This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
 
-1. Open a new terminal to run the following command: Change *example-app* to the name of your application.
+## Install the Application
 
-```sh
-composer create-project slim/slim-skeleton:dev-master example-app
+Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
+
+```bash
+composer create-project slim/slim-skeleton [my-app-name]
 ```
 
-2. CD into your newly created project and type **`code .`** to open the current directory in Visual Studio Code.
+Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
 
-If you are running a fresh PHP installation, you can use this example [php.ini](https://chmaldstorage.blob.core.windows.net/phpwpbootcamp/php.ini) files for your PHP installation.
+* Point your virtual host document root to your new application's `public/` directory.
+* Ensure `logs/` is web writable.
 
-## Running Slim application
+To run the application in development, you can run these commands 
 
-Slim is a micro framework; therefore, there is nothing further that needs to be configured for our test application.
-
-To start and run Slim, use the following command:
-
-```sh
-php -S localhost:8080 -t public public/index.php
+```bash
+cd [my-app-name]
+composer start
 ```
 
-Navigate to `http://localhost:8080` to view application.
+Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
+```bash
+cd [my-app-name]
+docker-compose up -d
+```
+After that, open `http://localhost:8080` in your browser.
 
-To stop your application, press `CTRL+C`.
+Run this command in the application directory to run the test suite
 
-## Working with Controllers
-
-The Slim micro framework skeleton app comes pre-built with with a User Controller. Controllers in Slim are called `Actions`.
-
-The User `Actions` can be located under `src\Application\Actions\User`.
-
-There will be threes `Actions` defines. One `constructor` action and two specific action files.
-
-Take a look at `ListUsersAction.php` and `ViewUserAction.php` to see what they are doing.
-
-## Working with Routes
-
-In order to tie `Actions` to a specific endpoint, you will need to define the `route` for these specific actions.
-
-In the file `app\routes.php`, you will find all the routes defined for the Slim micro framework application.
-
-Add a new route for `/hello` to send static data.
-
-```php
-$app->get('/hello', function (Request $request, Response $response) {
-    $response->getBody()->write('Hello from our new Slim micro framework application.');
-    return $response;
-});
+```bash
+composer test
 ```
 
-Start the application and navigate to our new route: `http://localhost:8080/hello`
-
-## Expand your knowledge
-
-Create two additional endpoints using the resources below to expand your knowledge:
-
-[Slim - Request](https://www.slimframework.com/docs/v4/objects/request.html)
-
-[Slim - Response](https://www.slimframework.com/docs/v4/objects/response.html)
-
-[Slim - Routing](https://www.slimframework.com/docs/v4/objects/routing.html)
+That's it! Now go build something cool.
